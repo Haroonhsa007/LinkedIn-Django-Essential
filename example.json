@@ -1,0 +1,11 @@
+{
+    "DEBUG": true,
+    "SECRET_KEY": "django-insecure-6t@0l@7%&^@^&^&^&^&^&^&^&^&^&^&^",
+    "ALLOWED_HOSTS": ["localhost","127.0.0.1"],
+    "DATABASE": "dev",
+    "DB_ENGINE":"",
+    "DB_NAME": "",
+    "DB_PASSWORD": "",
+    "DB_USER":"",
+    "DB_PORT":""
+}

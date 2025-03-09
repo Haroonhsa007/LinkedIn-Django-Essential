@@ -75,12 +75,36 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if CONFIG["DATABASE"] == "pro":
+    DATABASES = {
+        'default': {
+            'ENGINE'    : CONFIG["DB_ENGINE"],
+            'NAME'      : CONFIG["DB_NAME"],
+            'USER'      : CONFIG["DB_USER"],
+            'PASSWORD'  : CONFIG["DB_PASSWORD"],
+            'HOST'      : CONFIG["DB_HOST"],
+            'PORT'      : CONFIG["DB_PORT"],
+        #     'OPTIONS': {
+        #         'keepalives': 1,
+        #         'keepalives_idle': 30,
+        #         'keepalives_interval': 10,
+        #         'keepalives_count': 5,
+        #         'connect_timeout': 10,
+        #         'client_encoding': 'UTF8',
+        #     },
+        # 'CONN_MAX_AGE': 300,
+        # 'ATOMIC_REQUESTS': False,
+        # 'AUTOCOMMIT': True,
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
