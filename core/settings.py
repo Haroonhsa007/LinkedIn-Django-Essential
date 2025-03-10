@@ -13,8 +13,9 @@ DEBUG = CONFIG["DEBUG"]
 
 ALLOWED_HOSTS = CONFIG["ALLOWED_HOSTS"]
 
+INSTALLED_APPS = []
 
-INSTALLED_APPS = [
+INSTALLED_APPS += [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -25,7 +26,7 @@ INSTALLED_APPS = [
 
 
 INSTALLED_APPS += [
-    "auth",
+    "Authentication",
 ]
 
 
@@ -118,8 +119,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
