@@ -8,7 +8,6 @@ CONFIG = json.loads(open(str(BASE_DIR) + "/config.json", "r").read())
 
 SECRET_KEY = CONFIG["SECRET_KEY"]
 
-
 DEBUG = CONFIG["DEBUG"]
 
 ALLOWED_HOSTS = CONFIG["ALLOWED_HOSTS"]
@@ -46,12 +45,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
-TEMPLATES_DIR = BASE_DIR / "templates"
+TEMPLATES_DIR = [BASE_DIR / "templates", ]
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [TEMPLATES_DIR],
+        "DIRS": TEMPLATES_DIR,
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,8 +124,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
+# STATICFILES_DIRS = [ BASE_DIR / "static",]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
