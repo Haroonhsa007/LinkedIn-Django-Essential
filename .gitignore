@@ -12,7 +12,8 @@ db.sqlite3-journal
 media
 !*/migrations/__init__.py
 migrations/*.pyc
-migrations/****.py
+
+****_initial.py
 
 config.json
 
