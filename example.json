@@ -1,6 +1,6 @@
 {
     "DEBUG": true,
-    "SECRET_KEY": "django-insecure-6t@0l@7%&^@^&^&^&^&^&^&^&^&^&^&^",
+    "SECRET_KEY": "d#^h846$+=j6s8&7%=vr_*algnus3ye%*pwaa@o#2%i1ls#2$m",
     "ALLOWED_HOSTS": ["localhost","127.0.0.1"],
     "DATABASE": "dev",
     "DB_ENGINE":"",

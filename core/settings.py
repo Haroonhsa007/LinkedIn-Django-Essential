@@ -16,7 +16,7 @@ ALLOWED_HOSTS = CONFIG["ALLOWED_HOSTS"]
 INSTALLED_APPS = []
 
 # for Custom Admin Interface. Using django ufold
-#INSTALLED_APPS +=[]
+# INSTALLED_APPS +=[]
 
 INSTALLED_APPS += [
     "django.contrib.admin",
@@ -46,10 +46,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
+TEMPLATES_DIR = BASE_DIR / "templates"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
