@@ -13,7 +13,7 @@ media
 !*/migrations/__init__.py
 migrations/*.pyc
 
-****_initial.py
+*/migrations/****_****.py
 
 config.json
 
