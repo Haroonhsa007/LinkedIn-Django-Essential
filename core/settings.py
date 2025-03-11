@@ -15,6 +15,9 @@ ALLOWED_HOSTS = CONFIG["ALLOWED_HOSTS"]
 
 INSTALLED_APPS = []
 
+# for Custom Admin Interface. Using django ufold
+#INSTALLED_APPS +=[]
+
 INSTALLED_APPS += [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -26,7 +29,7 @@ INSTALLED_APPS += [
 
 
 INSTALLED_APPS += [
-    "Authentication",
+#    "",
 ]
 
 
