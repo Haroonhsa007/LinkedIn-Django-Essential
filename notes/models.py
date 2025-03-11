@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Notes(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -12,5 +13,4 @@ class Notes(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['-created_at']
-        
+        ordering = ["-created_at"]
