@@ -1,6 +1,5 @@
 # LinkedIn-Django-Essential #
 
-
 ##  Class Based Views ##
 
 ```py
