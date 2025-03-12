@@ -1,56 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotFound
-
+from django.views.generic import DetailView, ListView
 
 from .models import Notes
 
 
-# *********************************************************** #
-#                      Class Based Views                      #
-# *********************************************************** #
+class NotesListView(ListView):
+    model = Notes
+    template_name = "notes/notes_list.html"
+    context_object_name = "notes"
+    # option1 
+    queryset = Notes.objects.filter(is_deleted=False).order_by("-created_at")
 
-"""class view"""
-"""
-from django.view.generic import TemplateView
-
-# for auth us mixins
-
-from django.contrib.auth.mixins import LoginRequiredMixin 
-# add it before TemplateView
-
-class ViewTemplate(TemplateView):
-    template_name = "test/test.html"
-    extra_context = {"context":context}
-"""
-"""class view urls"""
-"""
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('viewTemplate/', views.ViewTemplate.as_view(), name='ViewTemplate'),
-"""
-# *********************************************************** #
-#                   Function Based Views                      #
-# *********************************************************** #
-
-"""
-def list(request):
-    notes = Notes.objects.filter(is_deleted=False).order_by("-created_at")
-
-    context = {"notes": notes}
-
-    return render(request, "notes/notes_list.html", context)
+    # option2
+    # def get_queryset(self):
+    #     return Notes.objects.filter(is_deleted=False).order_by("-created_at")
 
 
-def detail(request, pk):
-    try:
-        note = Notes.objects.get(pk=pk)
-    except Notes.DoesNotExist:
-        return HttpResponseNotFound("Note not found")
+class DetailNoteView(DetailView):
+    model = Notes
+    template_name = "notes/note_detail.html"
+    context_object_name = "note"
 
-    context = {"note": note}
+    def get_queryset(self):
+        return Notes.objects.filter(is_deleted=False).order_by("-created_at")
 
-    return render(request, "notes/note_detail.html", context)
 
-"""
+class PopularNotesListView(ListView):
+    model = Notes
+    template_name = None
+    context_object_name = "popular_notes"
+
+    def get_queryset(self):
+        return Notes.objects.filter(is_deleted=False, likes__gte=1).order_by("-created_at")

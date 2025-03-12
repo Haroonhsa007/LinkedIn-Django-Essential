@@ -1,6 +1,7 @@
 # LinkedIn-Django-Essential #
 
 ##  Class Based Views ##
+[Source for Class Based Views and more](https://ccbv.co.uk)
 
 ```py
 from django.view.generic import TemplateView
@@ -23,6 +24,7 @@ from . import views
 
 urlpatterns = [
     path('viewTemplate/', views.ViewTemplate.as_view(), name='ViewTemplate'),
+    ]
 ```
 
 ## Function Based Views ##
