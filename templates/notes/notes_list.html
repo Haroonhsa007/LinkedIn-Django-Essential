@@ -1,27 +1,42 @@
-<h1>Notes</h1>
+{% extends "home/base.html" %}
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Created At</th>
-            <th>Likes</th>
-            <th>Updated At</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for note in notes %}
+{% block title %}
+    Notes
+{% endblock title %}
+
+{% block content %}
+    <h1 class="display-4">Notes</h1>
+
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>{{ note.title }}</td>
-                <td>{{ note.created_at }}</td>
-                <td>{{ note.likes }}</td>
-                <td>{{ note.updated_at }}</td>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                {% comment %} <th scope="col">Created At</th> {% endcomment %}
+                <th scope="col">Likes</th>
+                {% comment %} <th scope="col">Updated At</th> {% endcomment %}
+                <th scope="col">Actions</th>
             </tr>
-        {% empty %}
-            <tr>
-                <td colspan="4">No notes available.</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for note in notes %}
+                <tr>
+                    <td>{{ note.title }}</td>
+                    <td>{{ note.content | truncatechars:10 }}</td>
+                    {% comment %} <td>{{ note.created_at }}</td> {% endcomment %}
+                    <td>{{ note.likes }}</td>
+                    {% comment %} <td>{{ note.updated_at }}</td> {% endcomment %}
+                    <td>
+                        <a href="{% url 'note_detail' pk=note.pk %}" class="btn btn-primary">View</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No notes available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
 
