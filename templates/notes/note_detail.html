@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Note Detail</title>
-</head>
-<body>
-    <h1>{{ note.title }}</h1>
-    <p>{{ note.content }}</p>
-    <p>created at: {{ note.created_at }}</p>
-    <p>updated at: {{ note.updated_at }}</p>
-    <p>likes: {{ note.likes }}</p>
-</body>
-</html>
+{% extends "home/base.html" %}
+
+{% block title %} 
+    Notes Detail
+{% endblock title %} 
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4">{{ note.title }}</h1>
+    <p class="lead">{{ note.content }}</p>
+    <p class="text-muted">Created at: {{ note.created_at }}</p>
+    <p class="text-muted">Updated at: {{ note.updated_at }}</p>
+    <p class="text-success">Likes: {{ note.likes }}</p>
+</div>
+{% endblock content %}
+
