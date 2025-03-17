@@ -1,5 +1,5 @@
 # Project Documentation: Django Notes Application
-
+---
 ## Project Overview
 
 This application is a Django-based note-taking system that allows users to create, view, and manage notes. The project follows Django's MVT (Model-View-Template) architecture with the following structure:
