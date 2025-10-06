@@ -167,5 +167,3 @@ Feel free to explore these challenges further or add your own enhancements.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
-Happy coding! If you have any questions or suggestions, please feel free to open an issue or submit a pull request.
